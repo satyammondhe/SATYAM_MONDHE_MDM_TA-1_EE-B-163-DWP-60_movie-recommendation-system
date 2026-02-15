@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MovieRec - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">MovieRec</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="recommendations.html">Recommendations</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Discover Movies You'll Love</h1>
+  <input type="text" id="searchInput" placeholder="Search movies...">
+  <button onclick="searchMovie()">Get Recommendations</button>
+</section>
+
+<section class="movies" id="homeMovies"></section>
+
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById("homeMovies");
+
+  movies.slice(0,6).forEach(movie => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${movie.image}">
+        <div class="card-content">
+          <h3>${movie.title}</h3>
+          <p>⭐ ${movie.rating}</p>
+          <button class="btn" onclick="viewDetails('${movie.title}')">
+            View Details
+          </button>
+        </div>
+      </div>
+    `;
+  });
+});
+</script>
+
+
+</body>
+</html>
